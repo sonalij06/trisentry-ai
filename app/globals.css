@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --border: #e3e5f0;
+  --ink: #17192b;
+  --muted: #666a80;
+  --accent: #1f6feb;
+  --red: #b3123f;
+  --yellow: #7a5906;
+  --green: #0d6b35;
+  --maternal: #c2437a;
+  --focus-ring: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Themed focus ring for every interactive element, replacing the browser
+   default outline - a "browser surface" the craft-floor calls out by name. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* The one authored motion moment: a result panel reveals after a request
+   completes. Conveys state (done), not decoration. */
+@keyframes result-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.result-enter {
+  animation: result-reveal 240ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .result-enter {
+    animation: none;
+  }
+}
