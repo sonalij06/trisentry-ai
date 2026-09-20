@@ -57,11 +57,11 @@ v4. Deployed on Vercel.
 
 ## GitHub Repository
 
-[ADD LINK AFTER PUSHING TO GITHUB]
+https://github.com/sonalij06/trisentry-ai
 
 ## Deployed Link
 
-[ADD LINK AFTER DEPLOYING TO VERCEL]
+https://vitalguard-ai-tau.vercel.app
 
 ## Real-World Impact
 
