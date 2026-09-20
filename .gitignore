@@ -1,9 +1,38 @@
+# dependencies
 node_modules
-.next
-.env.local
-.env
-npm-debug.log*
-.DS_Store
 
+# Next.js build output
+.next
+out
+
+# Vercel
 .vercel
-.env*
+
+# secrets - never commit real env files, only *.example templates
+.env
+.env*.local
+.env.local
+.env.development
+.env.production
+!.env.local.example
+!.env.example
+
+# other common secret/credential file patterns
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.json
+service-account*.json
+*.crt
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

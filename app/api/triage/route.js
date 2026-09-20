@@ -21,12 +21,17 @@ export async function POST(request) {
     return NextResponse.json({ error: "Please keep the description under 2000 characters." }, { status: 400 });
   }
 
-  const { matched, summary, usedAi } = await matchSymptomRules(text, SYMPTOM_RULES);
+  const { matched, summary, immediateSuggestion, whatToWatchFor, usedAi } = await matchSymptomRules(
+    text,
+    SYMPTOM_RULES,
+  );
   const level = computeLevel(matched);
 
   return NextResponse.json({
     level,
     summary,
+    immediateSuggestion,
+    whatToWatchFor,
     matched: matched.map((r) => ({ id: r.id, label: r.label, tier: r.tier, advice: r.advice })),
     usedAi,
   });

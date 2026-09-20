@@ -73,6 +73,23 @@ export default function TriagePage() {
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm">
             <UrgencyBadge level={result.level} />
             {result.summary && <p className="mt-4 text-[var(--ink)]">{result.summary}</p>}
+
+            {(result.immediateSuggestion || result.whatToWatchFor) && (
+              <div className="mt-4 space-y-3 border-t border-[var(--border)] pt-4 text-sm">
+                {result.immediateSuggestion && (
+                  <div>
+                    <p className="font-semibold text-[var(--ink)]">What to do now</p>
+                    <p className="text-[var(--muted)]">{result.immediateSuggestion}</p>
+                  </div>
+                )}
+                {result.whatToWatchFor && (
+                  <div>
+                    <p className="font-semibold text-[var(--red)]">Seek care sooner if</p>
+                    <p className="text-[var(--muted)]">{result.whatToWatchFor}</p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {result.matched?.length > 0 && (
